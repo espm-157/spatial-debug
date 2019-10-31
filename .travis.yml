@@ -1,0 +1,24 @@
+# R for travis: see documentation at https://docs.travis-ci.com/user/languages/r
+
+language: R
+sudo: true
+cache: packages
+sudo: required
+dist: trusty
+
+addons:
+  apt:
+    sources:
+      - sourceline: 'ppa:ubuntugis/ubuntugis-unstable'
+    packages:
+      - libudunits2-dev
+      - libnetcdf-dev
+      - libproj-dev
+      - libgeos-dev
+      - libgdal-dev
+      - netcdf-bin
+
+
+script: 
+  - R -f tests/render_rmds.R
+
