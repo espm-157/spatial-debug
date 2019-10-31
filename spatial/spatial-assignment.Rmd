@@ -16,11 +16,9 @@ library(raster)
 ```
 
 ```{r}
-#npp <- raster('rasters/annual_npp.tif')
 sst <- list.files("rasters", full.names = TRUE, pattern = "sst") %>%
-  stack() %>%
-  #projectRaster(npp) %>%
-  mean()
+  stack() #%>%
+  #mean()
   
 tm_shape(sst) + tm_raster()
 ```
