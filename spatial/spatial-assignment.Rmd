@@ -16,14 +16,17 @@ library(raster)
 ```
 
 ```{r}
-npp <- raster('rasters/annual_npp.tif')
-sst <- list.files("rasters", full.names = TRUE, pattern = "sst") %>%
-  stack() %>%
-  projectRaster(npp) %>%
-  mean()
-  
+download.file("https://github.com/espm-157/spatial-template/releases/download/data/annual_npp.tif", "npp.tif")
+download.file("https://github.com/espm-157/spatial-template/releases/download/data/average_annual_sst_2008.tif", "sst.tif")
+npp <- raster('npp.tif')
+sst <- raster('sst.tif') %>% projectRaster(npp)
+```  
+
+```{r}
 tm_shape(sst) + tm_raster()
 ```
+
+
 
 ```{r}
 ```
