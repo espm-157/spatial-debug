@@ -17,8 +17,8 @@ library(raster)
 
 ```{r}
 sst <- list.files("rasters", full.names = TRUE, pattern = "sst") %>%
-  stack() #%>%
-  #mean()
+  stack() %>%
+  calc( fun = mean)
   
 tm_shape(sst) + tm_raster()
 ```
