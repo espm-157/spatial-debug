@@ -10,8 +10,6 @@ knitr::opts_chunk$set(messages = FALSE, cache = FALSE)
 ```
 
 ```{r}
-library(tmap)
-library(sf)
 library(raster)
 ```
 
