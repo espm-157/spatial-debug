@@ -14,13 +14,11 @@ library(raster)
 ```
 
 ```{r}
-sst <- list.files("rasters", full.names = TRUE, pattern = "sst") %>%
-  stack() %>%
-  mean()
+fn <- system.file("external/test.grd", package="raster")
+s <- stack(fn, fn)
+my_raster <- mean(s)
+stopifnot(class(my_raster)[1] == "RasterLayer")
 
 
 ```
 
-```{r}
-stopifnot(class(sst)[1] == "RasterLayer")
-```
